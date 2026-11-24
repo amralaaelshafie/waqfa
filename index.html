@@ -22,6 +22,7 @@ h1{font-weight:900;font-size:clamp(34px,6vw,60px);line-height:1.25;margin:26px 0
 .screen .t{margin:12px auto 0;width:64%;padding:10px;border-radius:14px;background:#0b2119cc;font-weight:900;font-size:34px;direction:ltr;letter-spacing:1px}
 section{max-width:960px;margin:0 auto;padding:60px 20px 10px}
 h2{font-weight:900;font-size:32px;text-align:center;margin-bottom:8px}.sub{text-align:center;color:#5d7468;margin-bottom:30px}
+.count{display:flex;width:fit-content;align-items:center;gap:8px;margin:-14px auto 26px;background:#fff;border:1px solid var(--line);border-radius:999px;padding:8px 18px;font-weight:700;font-size:15px;color:var(--btn)}.count svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}.count b{font-weight:900;font-size:18px}
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:16px}
 .card{background:#fff;border:1px solid var(--line);border-radius:22px;padding:24px 18px;text-align:center;display:flex;flex-direction:column;gap:6px}
 .card.me{border:2px solid var(--btn);box-shadow:0 10px 30px #1c4a3a22}
@@ -45,6 +46,7 @@ footer{text-align:center;color:#7a8b82;padding:50px 20px 40px;font-size:14px}
 </div></header>
 
 <section id="download"><h2>حمّله على جهازك</h2><div class="sub">اختار نظامك</div>
+<div class="count" id="dl" hidden><svg viewBox="0 0 24 24"><path d="M12 4v11M7 11l5 5 5-5M5 20h14"/></svg><span>تم تحميل وقفة <b id="dln">0</b> مرة</span></div>
 <div class="grid">
 <div class="card" data-os="mac"><svg viewBox="0 0 48 48"><rect x="7" y="9" width="34" height="23" rx="3"/><path d="M3 38h42"/></svg><h3>ماك</h3><p>macOS 11 أو أحدث</p>
 <a class="btn" href="https://github.com/amralaaelshafie/waqfa/releases/latest/download/Waqfa-mac-apple-silicon.dmg">Apple Silicon (M1 وما بعده)</a>
@@ -65,4 +67,5 @@ footer{text-align:center;color:#7a8b82;padding:50px 20px 40px;font-size:14px}
 <script>
 const ua=navigator.userAgent,os=/Android/i.test(ua)?'android':/iPhone|iPad/i.test(ua)?'ios':/Mac/i.test(ua)?'mac':/Win/i.test(ua)?'win':'';
 const c=document.querySelector('[data-os="'+os+'"]');if(c){c.classList.add('me');if(os==='mac'||os==='win')c.parentNode.prepend(c)}
+fetch('https://api.github.com/repos/amralaaelshafie/waqfa/releases').then(r=>r.ok?r.json():[]).then(rs=>{let n=0;for(const r of rs)for(const a of r.assets||[])n+=a.download_count||0;if(n>0){document.getElementById('dln').textContent=n.toLocaleString('ar-EG');document.getElementById('dl').hidden=false}}).catch(()=>{});
 </script></body></html>
