@@ -3,7 +3,7 @@
 <meta name="description" content="وقفة بتفصلك عن الشغل وقت الصلاة. حمّله على ماك وويندوز.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Crect width='48' height='48' rx='11' fill='%231c4a3a'/%3E%3Cpath d='M24 8v5M13 38V28a11 11 0 0 1 22 0v10M10 38h28' fill='none' stroke='%23e8d9a4' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
 <style>
-@font-face{font-family:Thmanyah;font-weight:100 900;src:url(f.woff) format("woff")}
+@font-face{font-family:Thmanyah;font-weight:100 900;src:url(f.woff?v=2) format("woff")}
 :root{--ink:#17372c;--g1:#0c261d;--g2:#14392d;--gold:#e8d9a4;--cream:#f6f2e6;--line:#ddd6bd;--btn:#1c4a3a}
 *{box-sizing:border-box;margin:0}
 body{font-family:Thmanyah,Tahoma,sans-serif;background:var(--cream);color:var(--ink);line-height:1.7}
@@ -33,6 +33,7 @@ h2{font-weight:900;font-size:32px;text-align:center;margin-bottom:8px}.sub{text-
 .step{background:#fff;border:1px solid var(--line);border-radius:18px;padding:18px 18px 18px 18px;counter-increment:s}
 .step:before{content:counter(s);display:inline-grid;place-items:center;width:30px;height:30px;border-radius:50%;background:var(--btn);color:#fff;font-weight:900;margin-bottom:8px}
 .note{background:#efe9d3;border-radius:18px;padding:18px 22px;margin-top:20px;color:#3b5448}
+.ig{display:inline-flex;align-items:center;gap:10px;color:var(--btn);text-decoration:none;font-weight:700;font-size:15px;background:#fff;border:1px solid var(--line);padding:10px 20px;border-radius:999px}.ig svg{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round}.ig b{direction:ltr;unicode-bidi:isolate;font-weight:900}.ver{margin-top:16px}
 footer{text-align:center;color:#7a8b82;padding:50px 20px 40px;font-size:14px}
 </style></head><body>
 <header class="hero"><div class="in">
@@ -60,7 +61,7 @@ footer{text-align:center;color:#7a8b82;padding:50px 20px 40px;font-size:14px}
 <div class="step"><b>اختار مدينتك</b><br>أول مرة هتفتح لك الإعدادات تختار مدينتك وطريقة الحساب.</div>
 <div class="step"><b>سيبه شغّال</b><br>هيبعتلك تنبيه قبل الصلاة، وهيقفل الشاشة وقتها.</div></div>
 <div class="note"><b>لو احتجت ضرورة:</b> في زر فتح مؤقت لدقيقتين، مرتين لكل صلاة. وعلى الماك أول مرة اضغط كليك يمين ← فتح.</div></section>
-<footer>وقفة · نسخة تجريبية 0.1.0</footer>
+<footer><a class="ig" href="https://instagram.com/amralaa_elshafie" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5.5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.3" cy="6.7" r=".6" fill="currentColor"/></svg><span>تم تطوير بواسطة <b>amralaa_elshafie</b></span></a><div class="ver">وقفة · نسخة تجريبية 0.1.0</div></footer>
 <script>
 const ua=navigator.userAgent,os=/Android/i.test(ua)?'android':/iPhone|iPad/i.test(ua)?'ios':/Mac/i.test(ua)?'mac':/Win/i.test(ua)?'win':'';
 const c=document.querySelector('[data-os="'+os+'"]');if(c){c.classList.add('me');if(os==='mac'||os==='win')c.parentNode.prepend(c)}
